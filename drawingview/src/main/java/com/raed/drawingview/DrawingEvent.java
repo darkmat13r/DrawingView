@@ -6,6 +6,7 @@ public class DrawingEvent {
     private int mAction;//similar to MotionEvent actions
     private int mSize;
     public float[] mPoints = new float[20000];
+    private float mPressure;
 
     void add(float x, float y){
         mPoints[mSize] = x;
@@ -27,5 +28,14 @@ public class DrawingEvent {
 
     public int getAction() {
         return mAction;
+    }
+
+
+    public float getPressure() {
+        return mPressure;
+    }
+
+    public void setPressure(float mPressure) {
+        this.mPressure = mPressure;
     }
 }

@@ -77,6 +77,7 @@ public class DrawingPerformer {
         if (action == MotionEvent.ACTION_DOWN) {
             updateSelectedBrush();
             mDrawing = true;
+
             mDrawingFilter.reset();
         }
 
@@ -87,7 +88,7 @@ public class DrawingPerformer {
         mDrawingFilter.filter(x, y, mTemDrawingEvent);
         
         mTemDrawingEvent.setAction(action);
-        
+        mTemDrawingEvent.setPressure(event.getPressure());
         if (action == MotionEvent.ACTION_DOWN){
             mDrawingBoundsRect.reset(x, y);
         }else {
@@ -120,7 +121,6 @@ public class DrawingPerformer {
 
     private Rect getDrawingBoundsRect() {
         int size = mSelectedBrush.getSizeForSafeCrop();
-        Log.d(TAG, "getDrawingBoundsRect: " + size);
         int left = (int) (mDrawingBoundsRect.mMinX - size / 2);
         left = ( left > 0) ?  left : 0;
         int top = (int) (mDrawingBoundsRect.mMinY - size / 2);

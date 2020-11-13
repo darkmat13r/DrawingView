@@ -3,6 +3,7 @@ package com.raed.drawingview.brushes.stampbrushes;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.PorterDuff;
+import android.util.Log;
 import android.view.MotionEvent;
 
 import com.raed.drawingview.brushes.Brush;
@@ -15,15 +16,22 @@ public class StampBrushRenderer implements BrushRenderer {
     private StampBrush mStampBrush;
     private float mLastPoint[];
     private Bitmap mBitmap;
+    private float initialBrushSize;
+    private static final String TAG = StampBrushRenderer.class.getSimpleName();
 
     @Override
     public void onTouch(DrawingEvent drawingEvent) {
         if (drawingEvent.getAction() == MotionEvent.ACTION_DOWN) {
             mLastPoint = null;
+
             mCanvas.drawColor(0, PorterDuff.Mode.CLEAR);
         }
+        if(drawingEvent.getAction()  == MotionEvent.ACTION_UP){
 
-        int size = drawingEvent.size();
+        }
+
+        int size = drawingEvent.size() ;
+        mStampBrush.setSizeInPercentage(initialBrushSize * drawingEvent.getPressure());
         for (int i = 0; i + 1 < size - 2; i+=2)
             drawTo(drawingEvent.mPoints[i], drawingEvent.mPoints[i + 1]);
 
@@ -36,11 +44,13 @@ public class StampBrushRenderer implements BrushRenderer {
                 drawTo(lastX, lastY);
             }
         }
+        mStampBrush.setSizeInPercentage(initialBrushSize);
     }
 
     @Override
     public void setBrush(Brush brush) {
         mStampBrush = (StampBrush) brush;
+        initialBrushSize = mStampBrush.getSizeInPercentage();
     }
 
     @Override

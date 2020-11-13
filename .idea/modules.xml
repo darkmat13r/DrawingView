@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DrawingView.iml" filepath="$PROJECT_DIR$/DrawingView.iml" />
-      <module fileurl="file://$PROJECT_DIR$/drawingview/drawingview.iml" filepath="$PROJECT_DIR$/drawingview/drawingview.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sample/sample.iml" filepath="$PROJECT_DIR$/sample/sample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/DrawingView.iml" filepath="$PROJECT_DIR$/.idea/modules/DrawingView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/drawingview/DrawingView.drawingview.iml" filepath="$PROJECT_DIR$/.idea/modules/drawingview/DrawingView.drawingview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sample/DrawingView.sample.iml" filepath="$PROJECT_DIR$/.idea/modules/sample/DrawingView.sample.iml" />
     </modules>
   </component>
 </project>

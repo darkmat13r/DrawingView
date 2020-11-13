@@ -1,6 +1,7 @@
 package com.raed.drawingview.brushes;
 
 import android.graphics.Paint;
+import android.util.Log;
 
 
 public abstract class Brush {
@@ -30,7 +31,9 @@ public abstract class Brush {
         mSizeInPixel = (int) (mMinSizeInPixel + mSizeInPercentage * (mMaxSizeInPixel - mMinSizeInPixel));
     }
 
-    protected int getSizeInPixel() {
+
+
+    public int getSizeInPixel() {
         return mSizeInPixel;
     }
 
